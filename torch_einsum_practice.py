@@ -23,6 +23,15 @@ def main():
     print('Matrix Multiplication (ij,ik->ik)')
     print(torch.einsum('ij,ik->ik', matrix, matrix))
 
+    # Batch Matrix Multiplication
+    print('Batch Matrix Multiplication (bij,bjk->bik)')
+    batch_size = 3 
+    As = torch.randn(batch_size,2,5)
+    Bs = torch.randn(batch_size,5,4)
+    print(f'{As=}')
+    print(f'{Bs=}')
+    print(torch.einsum('bij,bjk->bik', As, Bs))
+
 
 if __name__ == '__main__':
     torch.manual_seed(0)
